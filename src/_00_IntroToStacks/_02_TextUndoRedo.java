@@ -1,9 +1,13 @@
 package _00_IntroToStacks;
 
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 public class _02_TextUndoRedo {
     /* 
      * Create a JFrame with a JPanel and a JLabel.
-     * 
+     *
      * Every time a key is pressed, add that character to the JLabel. It should
      * look like a basic text editor.
      * 
@@ -16,6 +20,22 @@ public class _02_TextUndoRedo {
      * pressed, the top Character is popped  off the Stack and added back to
      * the JLabel.
      */
-
+		
+		JFrame frame = new JFrame();
+		JPanel panel = new JPanel();
+		JLabel label = new JLabel();
+		
+		public static void main(String[] args) {
+			 _02_TextUndoRedo x = new _02_TextUndoRedo();
+			 x.run();
+			 
+		}
+		
+		public void run() {
+			frame.add(panel);
+			panel.add(label);
+			
+			
+		}
 
 }
