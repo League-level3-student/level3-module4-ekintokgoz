@@ -1,10 +1,13 @@
 package _00_IntroToStacks;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class _02_TextUndoRedo {
+public class _02_TextUndoRedo implements KeyListener {
     /* 
      * Create a JFrame with a JPanel and a JLabel.
      *
@@ -21,7 +24,7 @@ public class _02_TextUndoRedo {
      * the JLabel.
      */
 		
-		JFrame frame = new JFrame();
+		JFrame frame = new JFrame(); 
 		JPanel panel = new JPanel();
 		JLabel label = new JLabel();
 		
@@ -34,7 +37,26 @@ public class _02_TextUndoRedo {
 		public void run() {
 			frame.add(panel);
 			panel.add(label);
+			frame.setVisible(true);
+			frame.pack();
+			panel.addKeyListener(this);
+		}
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			// TODO Auto-generated method stub
 			
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void keyTyped(KeyEvent e) {
+			// TODO Auto-generated method stub
 			
 		}
 
