@@ -8,9 +8,19 @@ public class TestMatchingBrackets {
      * has a matching closing bracket
      */
     public static boolean doBracketsMatch(String b) {
-    	Stack<String> brackets = new Stack<String>();
+    	Stack<Character> brackets = new Stack<Character>();
+    	for(int i = 0; i < b.length(); i++) {
+    		if(b.charAt(i) == '{') {
+    			brackets.push(b.charAt(i));
+    		}else if(b.charAt(i) == '}') {
+    			if(brackets.isEmpty()) {
+    				return false;
+    			}else {
+    				brackets.pop();
+    			}
+    		}
+    	}
     	
-    	
-     return false;
+     return brackets.isEmpty();
     }
 }
