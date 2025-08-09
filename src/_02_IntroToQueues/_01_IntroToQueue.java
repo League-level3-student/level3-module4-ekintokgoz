@@ -84,7 +84,7 @@ public class _01_IntroToQueue {
 
 			for(int i = 0; i < 5; i ++) {
 				if(!queueOfDoubles.isEmpty()) {
-					System.out.println("Removing " + queueOfDoubles.remove() + "from the Queue");
+					System.out.println("Removing " + queueOfDoubles.remove() + " from the queue");
 				}
 			}
 		}

@@ -36,6 +36,9 @@ public class _02_BaseballTickets {
 
     public static int calculateWaitTime( ArrayDeque<Integer> ticketsQueue, int position ) {
         
+    	
+    	
+    	
         return -1;
     }
 }
