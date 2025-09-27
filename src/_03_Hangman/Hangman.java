@@ -18,7 +18,9 @@ public class Hangman implements KeyListener {
 	JLabel wordLabel = new JLabel();
 	String word = "";
 	String hiddenWord = "";
-	int nextWord = 0;
+	Stack<String> hangman = new Stack<String>();
+	Boolean win = false;
+
 
 	public static void main(String[] args) {		
 		Hangman hangman = new Hangman();
@@ -33,13 +35,11 @@ public class Hangman implements KeyListener {
 
 
 		String numOfWords = JOptionPane.showInputDialog("Enter the number of words to guess (1-100): ");
-		Stack<String> hangman = new Stack<String>();
 
-		//while(nextWord < numOfWords.length()) {
-
-			
-		//}
-			word = Utilities.readRandomLineFromFile("dictionary.txt");
+		for(int i = 0; i < Integer.parseInt(numOfWords); i++) {
+			hangman.add(Utilities.readRandomLineFromFile("dictionary.txt"));
+		}
+		word = hangman.pop();
 			for(int i = 0; i < word.length(); i++) {
 				hiddenWord += "_";
 			} 
@@ -68,10 +68,22 @@ public class Hangman implements KeyListener {
 		}
 		if(lives == 0) {
 			JOptionPane.showMessageDialog(null, "Ran out of lives. The hidden word was: " + word);
+			System.exit(0);
 		}
 		if(!hiddenWord.contains("_")) {
 			JOptionPane.showMessageDialog(null, "You found the hidden word!");
-			//nextWord += 1;
+			if(!hangman.isEmpty()) {
+				word = hangman.pop();
+				hiddenWord = "";
+				for(int i = 0; i < word.length(); i++) {
+					hiddenWord += "_";
+				} wordLabel.setText(hiddenWord);
+				lives = 10;
+				label.setText("Lives: " + lives);
+				frame.pack();
+			}else {
+				JOptionPane.showMessageDialog(null, "You win the game!!!!!");
+			}
 		}
 	}
 
